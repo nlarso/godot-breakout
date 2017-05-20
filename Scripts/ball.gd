@@ -11,6 +11,7 @@ func _fixed_process(delta):
 	
 	for body in bodies:
 		if body.is_in_group("Bricks"):
+			get_node("/root/World").score += 5
 			body.queue_free()
 		elif body.get_name() == "Paddle":
 			var speed = get_linear_velocity().length()
