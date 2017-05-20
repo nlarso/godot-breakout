@@ -8,6 +8,7 @@ func _ready():
 	
 func _fixed_process(delta):
 	var bodies = get_colliding_bodies()
+	
 	for body in bodies:
 		if body.is_in_group("Bricks"):
 			body.queue_free()
@@ -16,3 +17,6 @@ func _fixed_process(delta):
 			var direction = get_pos() - body.get_node("AnchorPoint").get_global_pos()
 			var velocity = direction.normalized()*min(speed+SPEEDUP*delta, MAXSPEED*delta)
 			set_linear_velocity(velocity)
+	
+	if get_pos().y > get_viewport_rect().end.y:
+		queue_free()
