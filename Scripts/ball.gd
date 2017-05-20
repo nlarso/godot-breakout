@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const SPEEDUP = 4
+const SPEEDUP = 6
 const MAXSPEED = 400
 
 func _ready():
